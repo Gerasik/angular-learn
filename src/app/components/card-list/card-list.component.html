@@ -1,1 +1,11 @@
-<app-card-item></app-card-item>
+<mat-list role="list" class="card-list">
+  <h2 class="card-list__name">{{ name }}</h2>
+  <app-card-item
+    *ngFor = "let card of cards"
+    [id] = "card.id"
+    [name] = "card.name"
+    [description] = "card.description"
+  >
+  </app-card-item>
+  <button mat-button class='page-header__button'>+ Create card</button>
+</mat-list>

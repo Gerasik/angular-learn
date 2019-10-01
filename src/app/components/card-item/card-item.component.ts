@@ -1,5 +1,5 @@
 import { Card } from './../../models/Cards';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 
 @Component({
@@ -7,15 +7,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './card-item.component.html',
   styleUrls: ['./card-item.component.sass']
 })
-export class CardItemComponent implements OnInit, Card {
+export class CardItemComponent implements Card {
 
-  public id: string;
-  public name: string;
-  public description: string;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input() public id: string;
+  @Input() public name: string;
+  @Input() public description: string;
 
 }

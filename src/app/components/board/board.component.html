@@ -1,1 +1,9 @@
-<app-card-list></app-card-list>
+<section class="board">
+  <app-card-list
+  *ngFor = "let item of items"
+  [id] = "item.id"
+  [name] = "item.name"
+  [cards] = "item.cards"
+  >
+  </app-card-list>
+</section>

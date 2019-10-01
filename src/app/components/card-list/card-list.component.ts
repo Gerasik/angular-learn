@@ -1,20 +1,15 @@
 import { CardList, Card } from './../../models/Cards';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.sass']
 })
-export class CardListComponent implements OnInit, CardList {
+export class CardListComponent implements CardList {
 
-  public id: string;
-  public name: string;
-  public cards: Card[ ];
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input() public id: string;
+  @Input() public name: string;
+  @Input() public cards: Card[ ];
 
 }
