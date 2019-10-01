@@ -3,26 +3,32 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppHeaderComponent } from './app-header/app-header.component';
-import { AppToolbarComponent } from './app-toolbar/app-toolbar.component';
-import { AppBoardComponent } from './app-board/app-board.component';
-import { AppFooterComponent } from './app-footer/app-footer.component';
-import { AppCardListComponent } from './app-card-list/app-card-list.component';
-import { AppCardItemComponent } from './app-card-item/app-card-item.component';
+import { BoardComponent } from './components/board/board.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CardItemComponent } from './components/card-item/card-item.component';
+import { CardListComponent } from './components/card-list/card-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppHeaderComponent,
-    AppToolbarComponent,
-    AppBoardComponent,
-    AppFooterComponent,
-    AppCardListComponent,
-    AppCardItemComponent
+    BoardComponent,
+    ToolbarComponent,
+    HeaderComponent,
+    FooterComponent,
+    CardItemComponent,
+    CardListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
