@@ -1,6 +1,7 @@
+import { CardList } from './../../models/Cards';
 import { User } from './../../models/User';
 import { Component, Input } from '@angular/core';
-import { CardList } from '../../models/Cards'
+import { CardList, Card } from '../../models/Cards'
 
 @Component({
   selector: 'app-board',
@@ -14,6 +15,11 @@ export class BoardComponent {
     firstName: 'Yauheni',
     lastName: 'Herasimenka'
   };
+
+  onRemoveCard({item, list}):void{
+    list.cards.splice(list.cards.indexOf(item),1);
+  }
+
   public readonly items :CardList[] = [
     {
       id: '1',

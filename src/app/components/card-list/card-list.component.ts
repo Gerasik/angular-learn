@@ -13,13 +13,13 @@ export class CardListComponent {
   @Input() public cardList: CardList;
 
   @Output() public editCard = new EventEmitter<any>();
-  @Output() public removeCard = new EventEmitter<any>();
+  @Output() public removeCard = new EventEmitter<{item: Card, list: CardList}>();
   @Output() public addCard = new EventEmitter<any>();
 
   onRemoveCard(card: Card){
     this.removeCard.emit({
       item: card,
-      list: this.cardList.cards
+      list: this.cardList
     })
   }
   onEditCard(card: Card){

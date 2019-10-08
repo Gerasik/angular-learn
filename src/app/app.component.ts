@@ -11,6 +11,5 @@ export class AppComponent {
 
   public onSearch(criterion: string) {
     this.searchCriterion = criterion;
-    console.log(this.searchCriterion);
   }
 }

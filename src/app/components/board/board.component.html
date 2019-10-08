@@ -3,6 +3,7 @@
   *ngFor = "let item of items"
   [cardList] = "item"
   [searchCriterion] = "searchCriterion"
+  (removeCard)="onRemoveCard($event)"
   >
   </app-card-list>
 </section>
