@@ -1,6 +1,12 @@
 <mat-list class="card-item">
-  <mat-list-item class="card-item__task" (click)="toggleItem()">{{name}}</mat-list-item>
-  <mat-list-item *ngIf="showAll" class="card-item__desc">{{description}}</mat-list-item>
-  <mat-list-item *ngIf="showAll" class="card-item__date">{{ dueDate | date:'dd LLL yyyy' }}</mat-list-item>
-  <mat-list-item *ngIf="showAll" class="card-item__user">{{assignee.firstName}} {{assignee.lastName}}</mat-list-item>
+  <mat-list-item class="card-item__task" (click)="toggleItem()">{{card.name}}</mat-list-item>
+  <ng-container *ngIf="showAll">
+    <mat-list-item class="card-item__desc">{{card.description}}</mat-list-item>
+    <mat-list-item class="card-item__date">{{ card.dueDate | date:'dd LLL yyyy' }}</mat-list-item>
+    <mat-list-item class="card-item__user">{{card.assignee.firstName}} {{card.assignee.lastName}}</mat-list-item>
+    <div class="card-item__button-row">
+      <button mat-flat-button (click)="onEdit()" color="primary">Edit</button>
+      <button mat-flat-button (click)="onRemove()" color="warn">Remove</button>
+    </div>
+  </ng-container>
 </mat-list>

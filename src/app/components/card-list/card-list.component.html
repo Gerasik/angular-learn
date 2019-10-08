@@ -1,13 +1,11 @@
 <mat-list role="list" class="card-list">
-  <h2 class="card-list__name">{{ name }}</h2>
+  <h2 class="card-list__name">{{ cardList.name }}</h2>
   <app-card-item
-    *ngFor = "let card of cards"
-    [id] = "card.id"
-    [name] = "card.name"
-    [description] = "card.description"
-    [dueDate] = "card.dueDate"
-    [assignee] = "card.assignee"
+    *ngFor = "let card of cardList.cards"
+    [card] = "card"
+    (removeCard)="onRemoveCard($event)"
+    (editCard)="onEditCard($event)"
   >
   </app-card-item>
-  <button mat-button class='page-header__button'>+ Create card</button>
+  <button mat-button class='page-header__button' (click)="onCreateCard">+ Create card</button>
 </mat-list>

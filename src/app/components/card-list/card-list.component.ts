@@ -1,5 +1,5 @@
 import { CardList, Card } from './../../models/Cards';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card-list',
@@ -7,10 +7,30 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card-list.component.sass']
 })
 
-export class CardListComponent implements CardList {
+export class CardListComponent {
+
   @Input() public searchCriterion: string;
-  @Input() public id: string;
-  @Input() public name: string;
-  @Input() public cards: Card[ ];
-  @Input() public isDoneSection: boolean;
+  @Input() public cardList: CardList;
+
+  @Output() public editCard = new EventEmitter<any>();
+  @Output() public removeCard = new EventEmitter<any>();
+  @Output() public addCard = new EventEmitter<any>();
+
+  onRemoveCard(card: Card){
+    this.removeCard.emit({
+      item: card,
+      list: this.cardList.cards
+    })
+  }
+  onEditCard(card: Card){
+    this.editCard.emit({
+      item: card,
+      list: this.cardList.cards
+    })
+  }
+
+  onCreateCard(){
+    this.addCard.emit(this.cardList);
+  }
+
 }

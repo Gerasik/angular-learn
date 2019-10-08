@@ -1,6 +1,5 @@
-import { User } from './../../models/User';
 import { Card } from './../../models/Cards';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -8,17 +7,23 @@ import { Component, Input } from '@angular/core';
   templateUrl: './card-item.component.html',
   styleUrls: ['./card-item.component.sass']
 })
-export class CardItemComponent implements Card {
+export class CardItemComponent {
 
-  @Input() public id: string;
-  @Input() public name: string;
-  @Input() public description: string;
-  @Input() public dueDate: Date | string;
-  @Input() public assignee: User;
+  @Input() public card: Card;
+  @Output() public editCard = new EventEmitter<Card>();
+  @Output() public removeCard = new EventEmitter<Card>();
+
   public showAll = false;
 
   public toggleItem(): void{
     this.showAll = !this.showAll;
   }
 
+  onEdit(){
+    this.editCard.emit(this.card);
+  }
+
+  onRemove(){
+    this.removeCard.emit(this.card);
+  }
 }
