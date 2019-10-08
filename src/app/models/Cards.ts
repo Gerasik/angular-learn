@@ -4,6 +4,7 @@ export class CardList {
   id: string;
   name: string;
   cards: Card[ ];
+  isDoneSelection?: boolean;
 }
 export class Card {
   id: string;

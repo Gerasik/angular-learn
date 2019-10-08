@@ -6,10 +6,11 @@ import { Component, Input } from '@angular/core';
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.sass']
 })
-export class CardListComponent implements CardList {
 
+export class CardListComponent implements CardList {
+  @Input() public searchCriterion: string;
   @Input() public id: string;
   @Input() public name: string;
   @Input() public cards: Card[ ];
-
+  @Input() public isDoneSection: boolean;
 }

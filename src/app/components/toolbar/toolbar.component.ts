@@ -5,13 +5,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.sass']
 })
+
 export class ToolbarComponent {
+  @Output() public search = new EventEmitter<string>();
 
   public searchCriterion : string;
-  @Output() public search = new EventEmitter<string>();
 
   public onSearch(){
     this.search.emit(this.searchCriterion);
   }
-
 }
