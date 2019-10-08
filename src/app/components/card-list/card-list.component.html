@@ -2,6 +2,7 @@
   <h2 class="card-list__name">{{ cardList.name }}</h2>
   <app-card-item
     *ngFor = "let card of cardList.cards | searchFilter: searchCriterion"
+    [isDoneSelection] = "cardList.isDoneSelection"
     [card] = "card"
     (removeCard)="onRemoveCard($event)"
     (editCard)="onEditCard($event)"

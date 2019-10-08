@@ -22,6 +22,7 @@ export class CardListComponent {
       list: this.cardList
     })
   }
+
   onEditCard(card: Card){
     this.editCard.emit({
       item: card,

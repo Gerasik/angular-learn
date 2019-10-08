@@ -1,4 +1,4 @@
-<mat-list class="card-item">
+<mat-list class="card-item" [class.done]="isDoneSelection" [ngStyle]="{'background-color': color}">
   <mat-list-item class="card-item__task" (click)="toggleItem()">{{card.name}}</mat-list-item>
   <ng-container *ngIf="showAll">
     <mat-list-item class="card-item__desc">{{card.description}}</mat-list-item>

@@ -1,7 +1,6 @@
-import { CardList } from './../../models/Cards';
 import { User } from './../../models/User';
 import { Component, Input } from '@angular/core';
-import { CardList, Card } from '../../models/Cards'
+import { CardList } from '../../models/Cards'
 
 @Component({
   selector: 'app-board',
@@ -44,7 +43,8 @@ export class BoardComponent {
           dueDate: new Date("11-11-2019"),
           assignee: this.user
         }
-      ]
+      ],
+      isDoneSelection: false
     },{
       id: '2',
       name: 'In progress',
@@ -53,13 +53,13 @@ export class BoardComponent {
           id: "1",
           name: "Task 4",
           description: "desc",
-          dueDate: new Date("11-11-2019"),
+          dueDate: new Date("11-13-2019"),
           assignee: this.user
         },{
           id: "2",
           name: "Task 5",
           description: "desc",
-          dueDate: new Date("11-11-2019"),
+          dueDate: new Date("11-17-2019"),
           assignee: this.user
         },{
           id: "3",
@@ -68,7 +68,8 @@ export class BoardComponent {
           dueDate: new Date("11-11-2019"),
           assignee: this.user
         }
-      ]
+      ],
+      isDoneSelection: false
     },{
       id: '3',
       name: 'Done',
