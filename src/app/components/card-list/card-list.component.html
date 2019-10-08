@@ -1,11 +1,11 @@
 <mat-list role="list" class="card-list">
   <h2 class="card-list__name">{{ cardList.name }}</h2>
   <app-card-item
-    *ngFor = "let card of cardList.cards"
+    *ngFor = "let card of cardList.cards | searchFilter: searchCriterion"
     [card] = "card"
     (removeCard)="onRemoveCard($event)"
     (editCard)="onEditCard($event)"
   >
   </app-card-item>
-  <button mat-button class='page-header__button' (click)="onCreateCard">+ Create card</button>
+  <button mat-button class='page-header__button' (click)="onCreateCard()">+ Create card</button>
 </mat-list>

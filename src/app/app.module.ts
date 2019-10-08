@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MatCardModule } from '@angular/material/card';
     HeaderComponent,
     FooterComponent,
     CardItemComponent,
-    CardListComponent
+    CardListComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
