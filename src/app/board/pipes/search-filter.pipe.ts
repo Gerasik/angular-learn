@@ -1,4 +1,4 @@
-import { Card } from './../models/Cards';
+import { Card } from '../models/Cards';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({

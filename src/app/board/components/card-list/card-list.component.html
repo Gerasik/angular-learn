@@ -6,7 +6,8 @@
     [card] = "card"
     (removeCard)="onRemoveCard($event)"
     (editCard)="onEditCard($event)"
+    [cardGroup]="cardList.id"
   >
   </app-card-item>
-  <button mat-button class='page-header__button' (click)="onCreateCard()">+ Create card</button>
+  <button [routerLink]="['create', this.cardList.id]" mat-button class='page-header__button' (click)="onCreateCard()">+ Create card</button>
 </mat-list>

@@ -5,7 +5,7 @@
     <mat-list-item class="card-item__date">{{ card.dueDate | date:'dd LLL yyyy' }}</mat-list-item>
     <mat-list-item class="card-item__user">{{card.assignee.firstName}} {{card.assignee.lastName}}</mat-list-item>
     <div class="card-item__button-row">
-      <button mat-flat-button (click)="onEdit()" color="primary">Edit</button>
+      <button [routerLink]="['edit', this.cardGroup, this.card.id]" mat-flat-button (click)="onEdit()" color="primary">Edit</button>
       <button mat-flat-button (click)="onRemove()" color="warn">Remove</button>
     </div>
   </ng-container>

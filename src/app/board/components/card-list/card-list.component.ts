@@ -1,4 +1,4 @@
-import { CardList, Card } from './../../models/Cards';
+import { CardList, Card } from '../../models/Cards';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

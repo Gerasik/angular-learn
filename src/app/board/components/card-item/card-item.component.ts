@@ -1,5 +1,6 @@
-import { Card } from './../../models/Cards';
+import { Card } from '../../models/Cards';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { ConditionalExpr } from '@angular/compiler';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
   styleUrls: ['./card-item.component.sass']
 })
 export class CardItemComponent implements OnInit {
-
+  @Input() public cardGroup: string;
   @Input() public card: Card;
   @Input() public isDoneSelection: boolean;
   @Output() public editCard = new EventEmitter<Card>();

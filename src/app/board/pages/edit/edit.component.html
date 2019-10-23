@@ -1,0 +1,21 @@
+<form [formGroup]="itemForm" class="edit-form" (submit)="save()">
+  <mat-form-field>
+    <input matInput type="text" [value]="currentItem.name" formControlName="name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" [value]="currentItem.description" formControlName="desc">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Select" formControlName="user" *ngFor="let user of userList">
+      <mat-option value="option" [value]="user.lastName">{{user.firstName + ' ' + user.lastName}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <label for="date">Due date</label>
+    <input id="date" matInput type="date" formControlName="date" [value]="currentItem.dueDate | date: 'yyyy-MM-dd'">
+  </mat-form-field>
+  <div class="edit-form__button-group">
+    <button type="submit" mat-button>Save</button>
+    <button (click)="edit()" mat-button color="accent">Cancel</button>
+  </div>
+</form>

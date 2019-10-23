@@ -1,4 +1,6 @@
 <app-header></app-header>
-<app-toolbar (search)="onSearch($event)"></app-toolbar>
-<app-board [searchCriterion]="searchCriterion"></app-board>
+<!-- <app-board [searchCriterion]="searchCriterion"></app-board> -->
+<main>
+    <router-outlet></router-outlet>
+</main>
 <app-footer></app-footer>
