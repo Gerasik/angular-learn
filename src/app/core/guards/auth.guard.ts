@@ -18,9 +18,11 @@ export class AuthGuard implements CanActivate, CanLoad {
   canLoad(
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
-    if(localStorage.getItem('user')) return true;
+    if(localStorage.getItem('user')) {
+      console.log('load')
+      return true};
     this.router.navigate(['/auth']);
-    console.log(1)
+    console.log('notload')
     return false
   }
 }

@@ -6,7 +6,7 @@ import { AuthGuard } from '../core/guards/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'board', component: BoardComponent, canActivate: [AuthGuard], canLoad: [AuthGuard] },
+  { path: '', component: BoardComponent, canActivate: [AuthGuard], canLoad: [AuthGuard] },
   { path: 'edit/:group/:id', component: EditComponent },
   { path: 'create/:group', component: EditComponent }
 ];

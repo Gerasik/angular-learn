@@ -7,8 +7,9 @@ const routes: Routes = [
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule'},
   { path: 'board', loadChildren: './board/board.module#BoardModule', canActivate: [AuthGuard], canLoad: [AuthGuard] },
   { path: '',
-  redirectTo: '/auth',
+  redirectTo: '/board',
   pathMatch: 'full' },
+  { path: '**', redirectTo: '/board'}
 ];
 
 @NgModule({
