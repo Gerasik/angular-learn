@@ -1,6 +1,9 @@
 <header class='page-header'>
   <div class="page-header__container">
     <img src={{imagePath}} width={{imageWidth}}>
-    <button mat-button class='page-header__button'>Login</button>
+    <div>
+      <button mat-button class='page-header__button'>LogIn</button>
+      <button mat-button class='page-header__button' (click)="logOut()">LogOut</button>
+    </div>
   </div>
 </header>
