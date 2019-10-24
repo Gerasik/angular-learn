@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { User } from './../models/User';
 import { CardList, Card } from './../models/Cards';
 import { Injectable } from '@angular/core';
@@ -83,7 +84,7 @@ export class BoardService {
         },{
           id: "33",
           name: "Task 9",
-          description: "desc",
+          description: "Geras",
           dueDate: new Date("11-11-2019"),
           assignee: this.user
         }
@@ -92,13 +93,6 @@ export class BoardService {
     },
   ]
 
-  findGroup(group):number {
-    return this.items.findIndex(i=> i.id === group);
-  }
-
-  findItem(itemId:number, id: string):number{
-    return this.items[itemId].cards.findIndex(i=> i.id === id);
-  }
 
   getNextIdGroup(groupId:number):number{
     return +this.items[groupId].cards[this.items[groupId].cards.length-1].id + 1;
@@ -107,6 +101,8 @@ export class BoardService {
   editItem(groupId: number, itemId:number, data: {name: string, desc: string, user: string, date: string}):void{
     const item = this.items[groupId].cards[itemId]
     item.name = data.name;
+    item.description = data.desc;
+    item.dueDate = new Date(data.date);
   }
 
   createItem(groupId: number, data: {name: string, desc: string, user: string, date: string}):void{
@@ -121,5 +117,21 @@ export class BoardService {
     this.items[groupId].cards.push(card);
   }
 
-  constructor() { }
+  removeCard({card, list}:{card: Card, list: CardList}){
+    list.cards.splice(list.cards.indexOf(card),1);
+  }
+
+  goToCreatePage(list: CardList){
+    const groupId = this.items.indexOf(list);
+    this.router.navigateByUrl('/create/' + groupId);
+  }
+
+  goToEditPage({card, list}:{card: Card, list: CardList}){
+    const groupId = this.items.indexOf(list);
+    const cardId = this.items[groupId].cards.indexOf(card);
+    this.router.navigateByUrl('/edit/' + groupId + '/' + cardId);
+  }
+
+  constructor(private router: Router){}
+
 }

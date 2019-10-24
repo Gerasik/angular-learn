@@ -12,21 +12,21 @@ export class CardListComponent {
   @Input() public searchCriterion: string;
   @Input() public cardList: CardList;
 
-  @Output() public editCard = new EventEmitter<any>();
-  @Output() public removeCard = new EventEmitter<{item: Card, list: CardList}>();
-  @Output() public addCard = new EventEmitter<any>();
+  @Output() public editCard = new EventEmitter<{card: Card, list: CardList}>();
+  @Output() public removeCard = new EventEmitter<{card: Card, list: CardList}>();
+  @Output() public addCard = new EventEmitter<CardList>();
 
   onRemoveCard(card: Card){
     this.removeCard.emit({
-      item: card,
+      card,
       list: this.cardList
     })
   }
 
   onEditCard(card: Card){
     this.editCard.emit({
-      item: card,
-      list: this.cardList.cards
+      card,
+      list: this.cardList
     })
   }
 

@@ -21,20 +21,20 @@ export class EditComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    const {group, id} = this.route.snapshot.params;
+    this.groupId = group;
+    this.itemId = id;
     this.userList = this.bs.userList;
-    this.groupId = this.bs.findGroup(this.route.snapshot.params.group);
     this.currentItem = {
-      id: '' + this.bs.getNextIdGroup(this.groupId),
+      id: '' + this.bs.getNextIdGroup(group),
       name: 'Name',
       description: 'Description',
       dueDate: new Date(),
       assignee: this.bs.userList[0],
     }
-    if(!!this.route.snapshot.params.id){
-      this.itemId = this.bs.findItem(this.groupId, this.route.snapshot.params.id);
-      this.currentItem = this.bs.items[this.groupId].cards[this.itemId];
+    if(!!id){
+      this.currentItem = this.bs.items[group].cards[id];
     }
-    console.log(this.currentItem)
     this.itemForm = this.fromBuilder.group({
       name: ['', Validators.required ],
       desc: ['', Validators.required ],
@@ -50,8 +50,10 @@ export class EditComponent implements OnInit {
       this.bs.createItem(this.groupId, this.itemForm.value);
     }
     this.router.navigate(['/board']);
-    console.log(this.bs.items[0].cards[0])
-    console.log(this.bs.items[0].cards)
+  }
+
+  cancel(){
+    this.router.navigate(['/board']);
   }
 
 }

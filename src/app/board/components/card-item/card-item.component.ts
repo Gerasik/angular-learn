@@ -1,6 +1,5 @@
 import { Card } from '../../models/Cards';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { ConditionalExpr } from '@angular/compiler';
 
 
 @Component({
@@ -45,4 +44,5 @@ export class CardItemComponent implements OnInit {
       this.color = 'inherit';
     }
   }
+
 }

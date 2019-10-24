@@ -9,5 +9,6 @@
     [cardGroup]="cardList.id"
   >
   </app-card-item>
-  <button [routerLink]="['create', this.cardList.id]" mat-button class='page-header__button' (click)="onCreateCard()">+ Create card</button>
+  <!-- <button [routerLink]="['create', this.cardList.id]" mat-button class='page-header__button' (click)="onCreateCard()">+ Create card</button> -->
+  <button mat-button class='page-header__button' (click)="onCreateCard()">+ Create card</button>
 </mat-list>

@@ -1,6 +1,6 @@
 import { BoardService } from './../../services/board.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { CardList } from '../../models/Cards'
+import { CardList, Card } from '../../models/Cards'
 
 @Component({
   selector: 'app-board',
@@ -10,19 +10,27 @@ import { CardList } from '../../models/Cards'
 export class BoardComponent implements OnInit{
   @Input() public searchCriterion: string;
 
-  constructor(public boardService: BoardService){  }
+  constructor(public bs: BoardService){  }
 
-  onRemoveCard({item, list}):void{
-    list.cards.splice(list.cards.indexOf(item),1);
+  onRemoveCard(data:{card: Card, list: CardList}):void{
+    this.bs.removeCard(data)
+  }
+
+  onCreateCard(data:CardList){
+    this.bs.goToCreatePage(data);
+  }
+
+  onEditCard(data:{card: Card, list: CardList}){
+    this.bs.goToEditPage(data);
   }
 
   public items :CardList[]
 
   ngOnInit(){
-    this.items = this.boardService.items;
-    console.log('======');
-    console.log(this.boardService.items[0].cards[0]);
-    console.log('======');
+    this.items = this.bs.items;
   }
 
+  onSearch(str:string){
+    this.searchCriterion = str;
+  }
 }
