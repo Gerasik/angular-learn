@@ -9,7 +9,7 @@
 /******/ // undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ // Promise = chunk loading, 0 = chunk loaded
 /******/var installedChunks={/******/"runtime":0/******/};/******/ /******/var deferredModules=[];/******/ /******/ // script path function
-/******/function jsonpScriptSrc(chunkId){/******/return __webpack_require__.p+""+({"default~auth-auth-module~board-board-module":"default~auth-auth-module~board-board-module","auth-auth-module":"auth-auth-module","board-board-module":"board-board-module"}[chunkId]||chunkId)+   "-es5.js";/******/}/******/ /******/ // The require function
+/******/function jsonpScriptSrc(chunkId){/******/return __webpack_require__.p+""+({"default~auth-auth-module-ngfactory~board-board-module-ngfactory":"default~auth-auth-module-ngfactory~board-board-module-ngfactory","auth-auth-module-ngfactory":"auth-auth-module-ngfactory","board-board-module-ngfactory":"board-board-module-ngfactory"}[chunkId]||chunkId)+   "-es5.js";/******/}/******/ /******/ // The require function
 /******/function __webpack_require__(moduleId){/******/ /******/ // Check if module is in cache
 /******/if(installedModules[moduleId]){/******/return installedModules[moduleId].exports;/******/}/******/ // Create a new module (and put it into the cache)
 /******/var module=installedModules[moduleId]={/******/i:moduleId,/******/l:false,/******/exports:{}/******/};/******/ /******/ // Execute the module function
